@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="생약자원관">
+	<meta name="keywords" content="생약자원관">
+	<meta name="description" content="생약자원관">
+	<meta name="format-detection" content="telephone=no">
+	<meta property="og:site_name" content="생약자원관">
+	<meta property="og:url" content="url 표기">
+	<meta property="og:title" content="생약자원관">
+	<meta property="og:description" content="생약자원관">
+	<meta property="og:type" content="website">
+    <link rel="stylesheet" type="text/css" href="/hmrm/site/kr/css/font.css" />
+    <link rel="stylesheet" type="text/css" href="/hmrm/site/kr/css/sub.css" />
+    <script src="/hmrm/common/js/jquery-1.12.4.HS-20200709.min.js"></script>
+    <script src="/hmrm/common/js/jquery.screen.min.custom.1.0.2.js"></script>
+    <script src="/hmrm/common/js/slick.min.custom.1.8.0.11.js"></script>
+    <script src="/hmrm/common/js/slick.extensions.min.js"></script>
+    <script src="/hmrm/site/kr/js/common.js"></script>
+    <script src="/hmrm/site/kr/js/sub.js"></script>
+    <script src="/hmrm/common/js/default.js"></script>
+    <script src="/hmrm/common/js/jquery.simple-dtpicker.js"></script>
+    <script src="/hmrm/common/js/program.min.js"></script>
+    <script src="/hmrm/site/public/js/template.js"></script>
+    <script src="/hmrm/site/public/prettify/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
+
+    <title>생약자원관</title>
+</head>
+<!-- //1차 메뉴에 따라서 순서대로 sub_type1 ~ 5 클래스가 붙을수있게 개발 부탁드립니다. -->
+<!-- //예시) 관람안내(첫번쨰 1차메뉴) - sub_type1
+ 알림·소식 (4번째 1차메뉴) - sub_type4 -->
+<body id="sub" class="sub saengyak sub_type5">
+	<!--// 메인레이아웃(id="main" class="main 사이트아이디") -->
+	<!--// 서브레이아웃(id="sub" class="sub 사이트아이디") -->
+<div class="accessibility">
+	<a href="#contents">본문 바로가기</a>
+</div>
+<div id="wrapper">
+    <header id="header">
+        <div class="header_top"></div>
+		<div class="header_box">
+			<div class="wrap">
+				<h1 class="logo"><a href="./index.do"><i class="logo_con_img">생약누리</i></a></h1>
+				<!-- //모바일 포커스 떄문에 새로만든 검색버튼 -->
+				<div class="mobile_hearder_box">
+					<div class="mobile_search_box">
+						<button type="button" class="mobile_search_btn" title="검색창 열기">통합검색</button>
+					</div>
+					<div class="menu_show">
+						<button type="button" class="menu_button">메뉴열기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="lnb">
+			<!-- 모바일용 lnb 마크업 -->
+			<div class="lnb_topbox">
+				<div class="mobile_lnb_wrap clearfix">
+					<div class="mobile_logo_box">
+						<a href="www.naver.com"><i class="mobile_logo_img">생약누리</i></a>
+					</div>
+					<div class="mobile_right_box">
+						<div class="mobile_eng_box">
+							<button type="button" class="m_eng_btn" title="언어선택 열기">
+								<span>KOR</span>
+							</button>
+							<ul class="m_eng_list">
+								<li class="m_eng_item">
+									<a href="" class="m_eng_link" title="새창" target="_blank" rel="noopener noreferrer">
+										<span>KOR</span>
+									</a>
+								</li>
+								<li class="m_eng_item">
+									<a href="" class="m_eng_link" title="새창" target="_blank" rel="noopener noreferrer">
+										<span>ENG</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mobile_login_box">
+							<!-- //m_login, m_logout -->
+							<a href="" class="m_login_btn m_login">로그인</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<nav class="menu after eachdown">
+				<!-- // 모바일(1000px 이하 부터)을 위해 초기에 5차 메뉴까지 개발 필요 합니다. -->
+				<!-- // 와이드에서는 3차메뉴까지만 표출되게 작업했습니다. -->
+				<!-- //어떤 메뉴를 선택하던 선택한 메뉴의 ◎마지막 차수◎ a태그 클래스인 depth_text 클래스 옆에 spy 클래스 및 타이틀 속성 title="선택됨" 이 들어올수있게 개발 부탁드립니다. -->
+				<!-- //예시 1) 1차메뉴 > 2차메뉴(3차메뉴가 없고 단일메뉴일때) > 선택된 2차메뉴 depth_text부분에 spy 클레스와 title="선택됨" 가 추가됩니다. -->
+				<!-- //예시 2) 1차메뉴 > 2차메뉴(3차메뉴가 존재할시) > 제일 첫번째 3차 메뉴 depth_text부분에 spy 클레스와 title="선택됨" 가 추가됩니다. -->
+				<!-- //예시 2-1) 예시 2) 에서 4차메뉴가 존재할시에 해당 4차메뉴중 첫번째 4차메뉴의 depth_text부분에 spy 클레스와 title="선택됨" 가 추가됩니다. -->
+				<!-- // ★◆★ spy 클래스는 한개만 존재해야합니다! ★◆★ -->
+				<!--// CMS 에서 새창설정 된 메뉴는 target="_blank" title="새창" 속성 들어갈 수 있게 부탁드립니다-->
+				<!-- //로그인 버튼 login_btn 부분에 로그인전에는 login 클래스 에 텍스트 '로그인' / 
+				 	로그인 되었을때는 logout 클래스이며 텍스트는 '로그아웃' 으로 될수있게 개발 부탁드립니다. -->
+				<h2 class="skip">메뉴</h2>
+				<div class="depth depth1">
+					<ul class="depth_list depth1_list clearfix">
+						<li class="depth_item depth1_item">
+							<a href="" class="depth_text depth1_text" target="_self"><span><em>관람안내</em></span></a>
+							<div class="depth depth2">
+								<div class="menu_title">
+									<div class="innerbox">
+										<div class="title">관람안내</div>
+									</div>
+								</div>
+								<ul class="depth_list depth2_list clearfix">
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_blank" title="새창"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+										<div class="depth depth3">
+											<ul class="depth_list depth3_list clearfix">
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+										<div class="depth depth3">
+											<ul class="depth_list depth3_list clearfix">
+												<li class="depth_item depth3_item">
+													<a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a>
+													<div class="depth depth4">
+														<ul class="depth_list depth4_list clearfix">
+															<li class="depth_item depth4_item">
+																<a href="" title="선택됨" class="depth_text depth4_text"><span><em>4차메뉴</em></span></a>
+																<!-- //spy 여기있어요! (마지막차수 첫번쨰 메뉴) -->
+																<div class="depth depth5">
+																	<ul class="depth_list depth5_list clearfix">
+																		<li class="depth_item depth5_item"><a href="" class="depth_text depth5_text spy" target="_self"><span><em>5차메뉴</em></span></a></li>
+																		<li class="depth_item depth5_item"><a href="" class="depth_text depth5_text" target="_self"><span><em>5차메뉴</em></span></a></li>
+																	</ul>
+																</div>
+															</li>
+															<li class="depth_item depth4_item"><a href="" class="depth_text depth4_text" target="_self"><span><em>4차메뉴</em></span></a></li>
+														</ul>
+													</div>
+												</li>
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="depth_item depth1_item">
+							<a href="" class="depth_text depth1_text" target="_self"><span><em>전시</em></span></a>
+							<div class="depth depth2">
+								<div class="menu_title">
+									<div class="innerbox">
+										<div class="title">전시</div>
+									</div>
+								</div>
+								<ul class="depth_list depth2_list clearfix">
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+										<div class="depth depth3">
+											<ul class="depth_list depth3_list clearfix">
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+										<div class="depth depth3">
+											<ul class="depth_list depth3_list clearfix">
+												<li class="depth_item depth3_item">
+													<a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a>
+													<div class="depth depth4">
+														<ul class="depth_list depth4_list clearfix">
+															<li class="depth_item depth4_item"><a href="" class="depth_text depth4_text" target="_self"><span><em>4차메뉴</em></span></a></li>
+															<li class="depth_item depth4_item"><a href="" class="depth_text depth4_text" target="_self"><span><em>4차메뉴</em></span></a></li>
+														</ul>
+													</div>
+												</li>
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_blank" title="새창"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="depth_item depth1_item">
+							<a href="" class="depth_text depth1_text" target="_self"><span><em>교육 · 행사</em></span></a>
+							<div class="depth depth2">
+								<div class="menu_title">
+									<div class="innerbox">
+										<div class="title">교육 · 행사</div>
+									</div>
+								</div>
+								<ul class="depth_list depth2_list clearfix">
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_blank" title="새창"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_blank" title="새창"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_blank" title="새창"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_blank" title="새창"><span><em>2차메뉴</em></span></a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="depth_item depth1_item">
+							<a href="" class="depth_text depth1_text" target="_self"><span><em>알림 · 소식</em></span></a>
+							<div class="depth depth2">
+								<div class="menu_title">
+									<div class="innerbox">
+										<div class="title">알림 · 소식</div>
+									</div>
+								</div>
+								<ul class="depth_list depth2_list clearfix">
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_blank" title="새창"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_blank" title="새창"><span><em>2차메뉴</em></span></a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="depth_item depth1_item">
+							<a href="" class="depth_text depth1_text" target="_self"><span><em>전시관소개</em></span></a>
+							<div class="depth depth2">
+								<div class="menu_title">
+									<div class="innerbox">
+										<div class="title">전시관소개</div>
+									</div>
+								</div>
+								<ul class="depth_list depth2_list clearfix">
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+										<div class="depth depth3">
+											<ul class="depth_list depth3_list clearfix">
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_blank" title="새창"><span><em>2차메뉴</em></span></a>
+									</li>
+									<li class="depth_item depth2_item clearfix">
+										<a href="" class="depth_text depth2_text" target="_self"><span><em>2차메뉴</em></span></a>
+										<div class="depth depth3">
+											<ul class="depth_list depth3_list clearfix">
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+												<li class="depth_item depth3_item"><a href="" class="depth_text depth3_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="menu_hide">
+				<button type="button" class="menu_button">메뉴 닫기</button>
+			</div>
+		</div>
+		<div class="lnb_curtain"><button type="button">메뉴 닫기</button></div>
+		<div class="header_btn_list">
+			<div class="wrap">
+				<div class="header_btn_item">
+					<div class="language_box">
+						<button class="language_btn" type="button" title="언어선택 열기">
+							<span class="language_text">KOR</span>
+						</button>
+						<div class="layer">
+							<ul class="language_list">
+								<li class="language_item active"><a href="/www/index.do" class="language_link"><span>KOR</span></a></li>
+								<li class="language_item"><a href="/english/index.do" target="_blank" title="새창" class="language_link"><span>ENG</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<ul class="last_list_item">
+						<li class="last_link_item login">
+							<a href="" class="last_btn login_btn login">로그인</a>
+						</li>
+						<li class="last_link_item">
+							<button type="button" class="last_btn search_btn">통합검색</button>
+						</li>
+						<li class="last_link_item site_map">
+							<a href="" class="last_btn sitemap_btn">전체메뉴</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="search_box">
+			<h2 class="skip">검색창</h2>
+			<div class="wrap">
+				<form name="searchform" id="searchform">
+					<fieldset>
+						<legend>검색영역폼</legend>
+						<div class="search_area">
+							<div class="search_position">
+								<div class="search_wrap">
+									<div class="search_border">
+										<input type="search" name="search" id="search_query" title="검색어" class="search_query" placeholder="검색어를 입력해주세요" spellcheck="false" >
+									</div>
+									<div class="search_submit">
+										<input type="submit" title="검색버튼" class="search_link_btn">
+									</div>
+								</div>
+								<div class="popular_search">
+									<div class="popular_icon">키워드 검색어</div>
+									<ul class="popular_list">
+										<li class="popular_item">
+											<a href="" class="popular_link">&#35;생약누리</a>
+										</li>
+										<li class="popular_item">
+											<a href="" class="popular_link">&#35;교육행사</a>
+										</li>
+										<li class="popular_item">
+											<a href="" class="popular_link">&#35;전시</a>
+										</li>
+										<li class="popular_item">
+											<a href="" class="popular_link">&#35;체험프로그램</a>
+										</li>
+										<li class="popular_item">
+											<a href="" class="popular_link">&#35;주말체험</a>
+										</li>
+									</ul>
+								</div>
+								<div class="search_close">
+									<button type="button" class="search_close_btn">검색창 닫기</button>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</header>
+	<div id="container">
+		<!-- //sub_type img 1 ~ 5 까지 비주얼마크업 입니다. -->
+		<div class="sub_visual">서브 비주얼</div>
+		<div class="wrap clearfix">
+			<!-- 누구냐 넌 -->
+			<div class="side">
+				<div class="side_title">
+					<div class="innerbox">
+						<p class="title">사업소소개</p>
+					</div>
+				</div>
+				<div class="side_menu">
+					<nav class="menu">
+						<h2 class="skip">서브메뉴</h2>
+						<div class="depth depth1">
+							<ul class="depth_list depth1_list">
+								<li class="depth_item depth1_item">
+									<a href="" class="depth_text depth1_text" target="_self"><span><em>2차메뉴</em></span></a>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text"><span><em>3차메뉴</em></span></a></li>
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="depth_item depth1_item">
+									<a href="" class="depth_text depth1_text" target="_self"><span><em>2차메뉴</em></span></a>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="depth_item depth1_item">
+									<a href="" class="depth_text depth1_text" target="_self"><span><em>2차메뉴</em></span></a>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+											<li class="depth_item depth2_item"><a href="" class="depth_text depth2_text" target="_self"><span><em>3차메뉴</em></span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="depth_item depth1_item"><a href="" class="depth_text depth1_text" target="_self"><span><em>2차메뉴</em></span></a></li>
+								<li class="depth_item depth1_item"><a href="" class="depth_text depth1_text" target="_self"><span><em>2차메뉴</em></span></a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div><!-- //.side -->
+			<main id="colgroup" class="colgroup">
+				<article>
+					<header class="sub_head">
+						<div class="visual_img">
+							<div class="visual_box">
+							</div>
+							<div class="visual_title">
+								<span class="visual_text">
+									<em>타이틀명</em>
+								</span>
+								<!-- //모바일전용 공유하기 버튼입니다 -->
+								<span class="m_etc_box">
+									<input type="hidden" id="shareUr2" />
+									<button type="button" class="m_etc_btn" title="공유 리스트 열기">공유하기</button>
+									<span class="m_share_list clearfix">
+										<span class="m_share_item facebook">
+											<a href="" class="m_share_link" target="_blank" title="새창" rel="noopener noreferrer">페이스북</a>
+										</span>
+										<span class="m_share_item blog">
+											<a href="" class="m_share_link" target="_blank" title="새창" rel="noopener noreferrer">블로그</a>
+										</span>
+										<span class="m_share_item link">
+											<button type="button" class="m_share_link" onclick="copyToClipboard();">링크 복사</button>
+										</span>
+										<span class="m_share_item close">
+											<button type="button" class="m_share_link" title="공유 리스트 닫기"></button>
+										</span>
+									</span>                                                                    
+								</span>
+							</div>
+						</div>
+						<!--// CMS 에서 새창설정 된 메뉴는 target="_blank" title="새창" 속성 들어갈 수 있게 부탁드립니다-->
+						<!--// 현재 메뉴명의 부모들이 전부 다 나와야 합니다. -->
+						<!-- //메뉴는 5차까지 개발 부탁드립니다. -->
+						<div class="path_box">
+							<div class="home">
+								<a href="./index.do" class="home_link">홈</a>
+							</div>
+							<div class="path_item_list clearfix">
+								<ul class="path_list">
+									<li class="path_item depth1">
+										<button type="button" class="path_btn" title="메뉴리스트 열기"><span>1차메뉴명</span></button>
+										<ul class="path_menu_list">
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>1차메뉴명_1</span>
+												</a>
+											</li>
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>1차메뉴명_2</span>
+												</a>
+											</li>
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>1차메뉴명_2</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="path_item depth2">
+										<button type="button" class="path_btn" title="메뉴리스트 열기"><span>2차메뉴명</span></button>
+										<ul class="path_menu_list">
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>2차메뉴명_1</span>
+												</a>
+											</li>
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>2차메뉴명_2</span>
+												</a>
+											</li>
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>2차메뉴명_2</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="path_item depth3">
+										<button type="button" class="path_btn" title="메뉴리스트 열기"><span>3차메뉴명</span></button>
+										<ul class="path_menu_list">
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>3차메뉴명_1</span>
+												</a>
+											</li>
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>3차메뉴명_2</span>
+												</a>
+											</li>
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>3차메뉴명_2</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<!-- //만일을 위한 마크업입니다 5차까지 개발 부탁드립니다. -->
+									<!-- <li class="path_item depth4">
+										<button type="button" class="path_btn"><span>4차메뉴명</span></button>
+										<ul class="path_menu_list">
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>4차메뉴명_1</span>
+												</a>
+											</li>
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>4차메뉴명_1</span>
+												</a>
+											</li>
+										</ul>
+									</li> -->
+									<!-- <li class="path_item depth5">
+										<button type="button" class="path_btn"><span>5차메뉴명</span></button>
+										<ul class="path_menu_list">
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>5차메뉴명_1</span>
+												</a>
+											</li>
+											<li class="path_menu_item">
+												<a href="" class="path_link" target="_self">
+													<span>5차메뉴명_1</span>
+												</a>
+											</li>
+										</ul>
+									</li> -->
+								</ul>
+								<!-- //(유지보수)추후 링크 수정시 (현) PC 공유하기 링크와 모바일 공유하기 링크를 같이 수정해주셔야 합니다 -->
+								<div class="etc_wrap">
+									<input type="hidden" id="shareUrl" />
+									<ul class="etc_list">
+										<li class="etc_item share">
+											<button type="button" title="공유 리스트 열기" class="share etc_btn">공유하기</button>
+											<ul class="share_list">
+												<li class="share_item facebook">
+													<a href="" class="share_link" target="_blank" title="새창" rel="noopener noreferrer">페이스북</a>
+												</li>
+												<li class="share_item blog">
+													<a href="" class="share_link" target="_blank" title="새창" rel="noopener noreferrer">블로그</a>
+												</li>
+												<li class="share_item link">
+													<button type="button" class="share_link" onclick="copyToClipboard();">링크 복사</button>
+												</li>
+												<li class="share_item close">
+													<button type="button" title="공유 리스트 닫기" class="share_link etc_close_btn">공유하기</button>
+												</li>
+											</ul>
+										</li>
+										<li class="etc_item print">
+											<button type="button" title="프린트 시작" onclick="window.print()" class="print etc_btn">프린트</button>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //모바일 전용 메뉴경로 마크업 입니다. -->
+							<div class="m_path_box">
+								<ul class="m_path_list">
+									<li class="m_path_item">
+										<a href="" target="_self">1차메뉴명</a>
+									</li>
+									<li class="m_path_item">
+										<a href="" target="_self">2차메뉴명</a>
+									</li>
+									<li class="m_path_item">
+										<a href="" target="_self">3차메뉴명</a>
+									</li>
+									<!-- //만일을 위한 마크업입니다 5차까지 개발 부탁드립니다. -->
+									<!-- <li class="m_path_item">
+										<a href="">4차메뉴명</a>
+									</li>
+									<li class="m_path_item">
+										<a href="">5차메뉴명</a>
+									</li> -->
+								</ul>
+							</div>
+						</div>
+					</header>
+					<div id="contents" class="cts123123"><!-- ctsxxx(키번호) -->
+						<div class="template_wrap">
+							<div class="box">
+								<p>크기는 16px 컬러는 #464a5e 본문텍스트입니다.
+								</p>
+								<p>동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 무궁화 
+									삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 가을 하늘 공활한데 높고 구름 없이 밝은
+								</p>
+							</div>
+<xmp class="prettyprint linenums">
+<div class="box">
+	<p></p>
+</div>
+</xmp>
+							<h5>아이콘 박스</h5>
+							<div class="box_wrap box">
+								<div class="icon_box">
+									<i class="icon"></i>
+								</div>
+								<div class="text_inner">
+									<div class="title">상단박스 타이틀</div>
+									<div class="desc">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 남산 위에 저 소나무 철갑을 두른 듯 바람 서리 
+										불변함은 우리 기상일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 가을 하늘 공활한데 높고 구름 없이 밝은 구름구름 구름구름 구름구름 구름구름 구름구름 구름구름 구름구름 구름구름</div>
+								</div>
+							</div>
+<xmp class="prettyprint linenums">
+<div class="box_wrap box">
+	<div class="icon_box">
+		<i class="icon"></i>
+	</div>  <!-- //icon_box -->
+	<div class="text_inner">
+		<div class="title">상단박스 타이틀</div>
+		<div class="desc">내용</div>
+	</div>  <!-- //text_inner -->
+</div>
+</xmp>
+							<h5>이미지 텍스트 박스</h5>
+							<div class="box temp_img_box">
+								<div class="img_item_box">
+									<img src="/hmrm/site/public/images/template/temp_img_box.jpg" alt="이미지텍스트">
+								</div>
+								<div class="tem_text_box">
+									<span class="title">타이틀</span>
+									<span class="desc">크기는 16px</span>
+								</div>
+							</div>
+<xmp class="prettyprint linenums">
+<div class="box temp_img_box">
+	<div class="img_item_box">
+		<img src="/hmrm/" alt="이미지텍스트">
+	</div>
+	<div class="tem_text_box">
+		<span class="title">타이틀</span>
+		<span class="desc">크기는 16px</span>
+	</div>
+</div>
+</xmp>
+							<h5>이미지 리스트 박스</h5>
+							<div class="box list_img_box img_box" data-row="3">
+								<ul class="img_list">
+									<li class="img_item">
+										<img src="/hmrm/site/kr/images/contents/cts13_item_img01.jpg" alt="옥상정원 사진1">
+										<span class="img_zoom">
+											<a href="/hmrm/site/kr/images/contents/cts13_item_img01.png" target="_blank" title="새창 이미지 확대보기">이미지 확대보기</a>
+										</span>
+									</li>
+									<li class="img_item">
+										<img src="/hmrm/site/kr/images/contents/cts13_item_img02.jpg" alt="옥상정원 사진2">
+										<span class="img_zoom">
+											<a href="/hmrm/site/kr/images/contents/cts13_item_img02.png" target="_blank" title="새창 이미지 확대보기">이미지 확대보기</a>
+										</span>
+									</li>
+									<li class="img_item">
+										<img src="/hmrm/site/kr/images/contents/cts13_item_img03.jpg" alt="옥상정원 사진3">
+										<span class="img_zoom">
+											<a href="/hmrm/site/kr/images/contents/cts13_item_img03.png" target="_blank" title="새창 이미지 확대보기">이미지 확대보기</a>
+										</span>
+									</li>
+								</ul>
+							</div>
+<xmp class="prettyprint linenums">
+<div class="box list_img_box img_box" data-row="3">
+	<ul class="img_list">
+		<li class="img_item">
+			<img src="/hmrm/" alt="">
+			<span class="img_zoom">
+				<a href="/hmrm/" target="_blank" title="새창 이미지 확대보기">이미지 확대보기</a>
+			</span>
+		</li>
+		<li class="img_item">
+			<img src="/hmrm/" alt="">
+			<span class="img_zoom">
+				<a href="/hmrm/" target="_blank" title="새창 이미지 확대보기">이미지 확대보기</a>
+			</span>
+		</li>
+		<li class="img_item">
+			<img src="/hmrm/" alt="">
+			<span class="img_zoom">
+				<a href="/hmrm/" target="_blank" title="새창 이미지 확대보기">이미지 확대보기</a>
+			</span>
+		</li>
+	</ul>
+</div>
+</xmp>
+
+</xmp>
+							<h3 class="h3_desc">H3타이틀 28px #427fce
+								<span>제목 옆 설명글</span>
+							</h3>
+							<h4>H4타이틀 24px #215aab</h4>
+							<h5>H5타이틀 22px #2e2f3b</h5>
+							<h6>H6타이틀 20px #2e2f3b</h6>
+							<p>크기는 16px 컬러는 #464a5e 본문텍스트입니다.<br />본문 텍스트(기본)</p>
+							<em class="em_blue">#007ae1 강조</em>
+							<em class="em_red">#d03459 강조</em>
+							<a href="" target="_blank" rel="noopener noreferrer" title="새창" class="p_link">사이트바로가기</a>
+							<button type="button" class="p_down">다운로드</button>
+							<span class="warning">주의사항</span>
+							<span class="warning type2">정보제공</span>
+<xmp class="prettyprint linenums">
+<h3>h3타이틀</h3>
+<h3 class="h3_desc">H3 타이틀
+	<span>제목 옆 설명글</span>
+</h3>
+<h4>h4타이틀</h4>
+<h5>h5타이틀</h5>
+<h6>h6타이틀</h6>
+<em class="em_blue">#007ae1</em>
+<em class="em_red">#d03459</em>
+<a href="" target="_blank" rel="noopener noreferrer" title="새창" class="p_link">사이트바로가기</a>
+<button type="button" class="p_down">다운로드</button>
+<span class="warning">주의사항</span>
+<span class="warning type2">정보제공</span>
+</xmp>
+							<h4>목록</h4>
+							<h5>단일 목록 형식</h5>
+							<p class="blt">기본 1차</p>
+							<p class="blt type2">기본 2차</p>
+							<p class="blt type3">기본 3차</p>
+							<p class="blt2">
+								<span class="lt">타이틀 : </span>
+								<span class="ld">목록</span>
+							</p>
+							<p class="blt3"><i class="number">1</i>숫자 1차</p>
+							<p class="blt3 type2"><i class="number">1</i>숫자 2차</p>
+<xmp class="prettyprint linenums">			
+<p class="blt">기본 1차</p>
+<p class="blt type2">기본 2차</p>
+<p class="blt type3">기본 3차</p>
+<p class="blt2">
+	<span class="lt">타이틀 : </span>
+	<span class="ld">목록</span>
+</p>
+<p class="blt3"><i class="number">1</i>숫자 1차</p>
+<p class="blt3 type2"><i class="number">1</i>숫자 2차</p>
+</xmp>
+							<h5>일반 리스트</h5>
+							<ul class="bu">
+								<li>1차내용</li>
+								<li>1차내용
+									<ul class="bu">
+										<li>2차내용</li>
+										<li>2차내용
+											<ul class="bu">
+												<li>3차내용</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+<xmp class="prettyprint linenums">
+<ul class="bu">
+	<li>1차내용
+		<ul class="bu">
+			<li>2차내용
+				<ul class="bu">
+					<li>3차내용</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+</xmp>
+							<h5>타이틀리스트</h5>
+							<ul class="tl">
+								<li>
+									<span class="lt">제목 : </span>
+									<span class="ld">내용</span>
+								</li>
+								<li>
+									<span class="lt">제목 : </span>
+									<span class="ld">내용</span>
+									<ul class="bu">
+										<li>2차내용</li>
+										<li>2차내용
+											<ul class="bu">
+												<li>3차내용</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h5>타이틀리스트 타입2</h5>
+							<ul class="tl type2">
+								<li>
+									<span class="lt">카테고리</span>
+									<span class="ld">교육</span>
+								</li>
+								<li>
+									<span class="lt">교육대상</span>
+									<span class="ld">영유아 티니핑 어린이집</span>
+								</li>
+								<li>
+									<span class="lt">접수기간</span>
+									<span class="ld">2024-03-01 09:00 ~ 2024-09-28 18:00</span>
+								</li>
+							</ul>
+<xmp class="prettyprint linenums">
+<ul class="tl">
+	<li>
+		<span class="lt">제목 : </span>
+		<span class="ld">내용</span>
+	</li>
+</ul>
+
+<ul class="tl">
+	<li>
+		<span class="lt">제목 : </span>
+		<span class="ld">내용</span>
+		<ul class="bu">
+			<li>2차내용</li>
+		</ul>
+	</li>
+</ul>
+
+<ul class="tl type2">
+	<li>
+		<span class="lt">제목</span>
+		<span class="ld">내용</span>
+	</li>
+</ul>
+</xmp>
+							<h5>넘버 리스트</h5>
+							<ol class="num">
+								<li>
+									<i class="number">1</i>
+									1차내용
+									<ul class="bu">
+										<li>2차내용</li>
+										<li>2차내용
+											<ul class="bu">
+												<li>3차내용</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ol>
+							<ul class="num">
+								<li>
+									<i class="number">1</i>
+									1차내용
+									<ul class="num">
+										<li>
+											<i class="number">2</i>
+											2차내용
+											<ul class="bu">
+												<li>3차내용</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+<xmp class="prettyprint linenums">
+<ol class="num">
+	<li>
+		<i class="number">1</i>
+		1차내용
+	</li>
+</ol>
+<ul class="num">
+	<li>
+		<i class="number">1</i>
+		1차내용
+		<ul class="num">
+			<li>
+				<i class="number">2</i>
+				2차내용
+			</li>
+		</ul>
+	</li>
+</ul>
+</xmp>
+							<h4>테이블</h4>
+							<h5>테이블 범례</h5>
+							<div class="table_unit">(단위)</div>
+<xmp class="prettyprint linenums">
+<div class="table_unit">(단위)</div>
+</xmp>
+							<h5>기본테이블</h5>
+							<table class="table">
+								<caption></caption>
+								<colgroup>
+									<col style="width:33.3%" />
+									<col style="width:33.3%" />
+									<col style="width:33.3%" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">제목</th>
+										<th scope="col">제목</th>
+										<th scope="col">제목</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>내용</td>
+										<td>내용</td>
+										<td>내용</td>
+									</tr>
+									<tr>
+										<td>내용</td>
+										<td>내용</td>
+										<td>내용</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td>11</td>
+										<td>11</td>
+										<td>11</td>
+									</tr>
+								</tfoot>
+							</table>
+<xmp class="prettyprint linenums">
+<table class="table">
+	<caption></caption>
+	<colgroup>
+		<col style="width:50%" />
+		<col style="width:50%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">제목</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>내용</td>
+		</tr>
+	</tbody>
+</table>
+</xmp>
+							<h5>기본 반응형 테이블</h5>
+							<table class="table responsive">
+								<caption></caption>
+								<colgroup>
+									<col style="width:33.3%" />
+									<col style="width:33.3%" />
+									<col style="width:33.3%" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">제목</th>
+										<th scope="col">제목</th>
+										<th scope="col">제목</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>내용</td>
+										<td>내용</td>
+										<td>내용</td>
+									</tr>
+									<tr>
+										<td>내용</td>
+										<td>내용</td>
+										<td>내용</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td>11</td>
+										<td>11</td>
+										<td>11</td>
+									</tr>
+								</tfoot>
+							</table>
+<xmp class="prettyprint linenums">
+<table class="table responsive">
+	<caption></caption>
+	<colgroup>
+		<col style="width:50%" />
+		<col style="width:50%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">제목</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>내용</td>
+		</tr>
+	</tbody>
+</table>
+</xmp>
+							<h5>세로 테이블</h5>
+							<table class="table type2 responsive">
+								<caption></caption>
+								<colgroup>
+									<col style="width:20%" />
+									<col style="width:40%" />
+									<col style="width:40%" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">제목</th>
+										<td>내용</td>
+										<td>내용</td>
+									</tr>
+									<tr>
+										<th scope="row">제목</th>
+										<td>내용</td>
+										<td>내용</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th scope="row">제목</th>
+										<td>11</td>
+										<td>11</td>
+									</tr>
+								</tfoot>
+							</table>
+<xmp class="prettyprint linenums">
+<table class="table type2 responsive">
+	<caption></caption>
+	<colgroup>
+		<col style="width:50%" />
+		<col style="width:50%" />
+	</colgroup>
+	<tbody>
+		<tr>
+			<th scope="row">제목</th>
+			<td>내용</td>
+		</tr>
+	</tbody>
+</table>
+</xmp>
+							<h5>혼합 테이블</h5>
+							<div class="table_scroll">
+								<table class="table">
+									<caption></caption>
+									<colgroup>
+										<col style="width:25%" />
+										<col style="width:25%" />
+										<col style="width:25%" />
+										<col style="width:25%" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" rowspan="2">제목</th>
+											<th scope="col" colspan="2">제목</th>
+											<th scope="col" rowspan="2">제목</th>
+										</tr>
+										<tr>
+											<th scope="col">제목</th>
+											<th scope="col">제목</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>내용</td>
+											<td>내용</td>
+											<td>내용</td>
+											<td>내용</td>
+										</tr>
+										<tr>
+											<td>내용</td>
+											<td>내용</td>
+											<td>내용</td>
+											<td>내용</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<td>11</td>
+											<td>11</td>
+											<td>11</td>
+											<td>11</td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+<xmp class="prettyprint linenums">
+<div class="table_scroll">
+	<table class="table">
+		<caption></caption>
+		<colgroup>
+			<col style="width:50%" />
+			<col style="width:50%" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col">제목</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>내용</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</xmp>
+
+							<h4>버튼</h4>	
+							<h5>일반 버튼</h5>
+							<p>background효과 적용으로 button과 a태그를 한번 감쌌습니다.</p>
+							<span class="temp_btn basic type1">
+								<button type="button" class="btn">basic type1</button>
+							</span>
+							<span class="temp_btn basic type2">
+								<button type="submit" class="btn">basic type2</button>
+							</span>
+							<span class="temp_btn basic type3">
+								<a href="" target="_blank" title="새창" rel="noopener noreferrer" class="btn">basic type3</a>
+							</span>
+							<span class="temp_btn icon link">
+								<a href="" target="_blank" title="새창" rel="noopener noreferrer" class="btn">icon link</a>
+							</span>
+							<span class="temp_btn icon down">
+								<button type="button" class="btn">icon down</button>
+							</span>
+							<br /><br />
+							<span class="temp_btn basic type1 medium">
+								<button type="button" class="btn">basic medium</button>
+							</span>
+							<span class="temp_btn basic type1 small">
+								<button type="button" class="btn">basic small</button>
+							</span>
+							
+<xmp class="prettyprint linenums">
+<span class="temp_btn basic type1">
+	<button type="button" class="btn">basic type1</button>
+</span>
+<span class="temp_btn basic type2">
+	<button type="submit" class="btn">basic type2</button>
+</span>
+<span class="temp_btn basic type3">
+	<a href="" target="_blank" title="새창" rel="noopener noreferrer" class="btn type3">basic type3</a>
+</span>
+<span class="temp_btn icon link">
+	<a href="" target="_blank" title="새창" rel="noopener noreferrer" class="btn">icon link</a>
+</span>
+<span class="temp_btn icon down">
+	<button type="button" class="btn">icon down</button>
+</span>
+<span class="temp_btn basic type1 medium">
+	<button type="button" class="btn">basic medium</button>
+</span>
+<span class="temp_btn basic type1 small">
+	<button type="button" class="btn">basic small</button>
+</span>
+</xmp>
+							<h4>폼요소</h4>
+							<h5>인풋</h5>
+							<p>★인폿 입력중 - typing, 인풋 에러 - error 클래스 개발 필요합니다. ☆</p>
+							<span class="temp_form">
+								<input type="text" title="" class="temp_input" placeholder="인풋">
+							</span>
+							<span class="temp_form stone">
+								<input type="text" title="" class="temp_input" placeholder="인풋 비활성화" disabled>
+							</span>
+							<span class="temp_form typing">
+								<input type="email" title="" class="temp_input" placeholder="인풋 입력중">
+							</span>
+							<span class="temp_form error">
+								<input type="text" title="" class="temp_input" placeholder="인풋 오류">
+							</span>
+							<p>★개발필요☆</p>
+							<p>파일찾기 버튼은 button과 label 두개의 마크업으로 작업되어있습니다. </p>
+							<span>
+								<form action="">
+									<span class="temp_form file">
+										<span class="p-form-group__upload file_box">
+											<input type="file" name="atchmnfl" id="file_add_0" class="p-upload__file--hidden" multiple="">
+											<span id="file_add_0" class="p-input disabled temp_input">파일명.jpg</span>
+										</span>
+										<span class="p-input__addon file_box">
+											<label for="file_add_0" class="p-button p-button--small primary file_search" data-button="upload" data-parent=".p-upload" data-original="#file_add_0" data-showfilename="#file_add_0"><span class="skip">0번째 </span>파일찾기 label</label>
+										</span>
+									</span>
+								</form>
+							</span>
+							<span>
+								<form action="">
+									<span class="temp_form file">
+										<span class="p-form-group__upload file_box">
+											<input type="file" name="atchmnf2" id="file_add_1" class="p-upload__file--hidden" multiple="">
+											<span id="file_add_1" class="p-input disabled temp_input">파일명.jpg</span>
+										</span>
+										<span class="p-input__addon file_box">
+											<button type="button" class="file_search">파일찾기 button</button>
+										</span>
+									</span>
+								</form>
+							</span>
+<xmp class="prettyprint linenums">
+<span class="temp_form">
+	<input type="text" title="" class="temp_input">
+</span>
+<span class="temp_form stone">
+	<input type="text" title="" class="temp_input" disabled>
+</span>
+
+<span class="temp_form file">
+	<span class="p-form-group__upload file_box">
+		<input type="file" name="atchmnfl" id="file_add_0" class="p-upload__file--hidden" multiple="">
+		<span id="file_add_0" class="p-input disabled temp_input">파일명.jpg</span>
+	</span>
+	<span class="p-input__addon file_box">
+		<button type="button" class="file_search">파일찾기</button>
+	</span>
+</span>
+</xmp>
+							<h5>셀렉트 박스</h5>
+							<span class="temp_select_form">
+								<select name="" title="" class="temp_select">
+									<option value="">기본 셀렉트1</option>
+									<option value="">기본 셀렉트2</option>
+									<option value="">기본 셀렉트3</option>
+								</select>
+							</span>
+							<div class="temp_select_form fake">
+								<button type="button" title="목록열기" class="temp_select">
+									<span class="select_text">가짜 셀렉트</span>
+								</button>
+								<ul class="select_list">
+									<li class="select_item"><button type="button" class="select_btn">목록 _오버& 선택목록 _오버</button></li>
+									<li class="select_item"><button type="button" class="select_btn">가짜 셀렉트2</button></li>
+									<li class="select_item"><button type="button" class="select_btn">가짜 셀렉트3</button></li>
+								</ul>
+							</div>
+							<p>★한개☆</p>
+							<form name="bbsNttForm" method="post" action="" enctype="multipart/form-data">
+								<span class="temp_calendar">
+									<input type="text" name="start_date" id="" class="p-form__date-input calendar_input" title="" value="" placeholder="yyyy-mm-dd">
+									<button type="button" class="p-form__date-button calendar_btn" title="달력열기" onclick="getCalendar(document.bbsNttForm.start_date);"></button>
+								</span>
+							</form>
+							<P>★두개☆</P>
+							<form name="bbsNttForm2" method="post" action="" enctype="multipart/form-data">
+								<span class="temp_calendar">
+									<input type="text" name="start_date" id="" class="p-form__date-input calendar_input" title="" value="" placeholder="yyyy-mm-dd" disabled>
+									<button type="button" class="p-form__date-button calendar_btn" title="달력열기" onclick="getCalendar(document.bbsNttForm2.start_date);"></button>
+								</span>
+								<span class="temp_calendar">
+									<input type="text" name="end_date" id="" class="p-form__date-input calendar_input" title="" value="" placeholder="yyyy-mm-dd" disabled>
+									<button type="button" class="p-form__date-button calendar_btn" title="달력열기" onclick="getCalendar(document.bbsNttForm2.end_date);"></button>
+								</span>
+							</form>
+							<!-- 생 마크업 -->
+							<!-- <span class="temp_calendar">
+								<input type="text" class="calendar_input" placeholder="yyyy-mm-dd" multiple="">
+								<button type="button" class="calendar_btn" title="달력열기">셀렉트 달력</button>
+							</span> -->
+<xmp class="prettyprint linenums">
+<span class="temp_select_form">
+	<select name="" title="" class="temp_select">
+		<option value="">내용1</option>
+		<option value="">내용2</option>
+	</select>
+</span>
+
+<div class="temp_select_form fake">
+	<button type="button" title="목록열기" class="temp_select">
+		<span class="select_text">가짜 셀렉트</span>
+	</button>
+	<ul class="select_list">
+		<li class="select_item"><button type="button" class="select_btn">가짜1</button></li>
+		<li class="select_item"><button type="button" class="select_btn">가짜2</button></li>
+	</ul>
+</div>
+
+<span class="temp_calendar">
+	<input type="text" name="start_date" id="" class="p-form__date-input calendar_input" title="" value="" placeholder="yyyy-mm-dd">
+	<button type="button" class="p-form__date-button calendar_btn" title="달력열기" onclick="getCalendar(document.bbsNttForm.start_date);"></button>
+</span>
+</xmp>
+							<h4>체크박스</h4>
+							<p>★비활성화 일시 input에 속성 disabled 붙여주세요☆</p>
+							<p>☆id와 label for를 일치시켜 주세요★</p>
+							<h5>라디오</h5>
+							<span class="temp_form">
+								<input type="radio" id="radio1" name="radio" class="temp_radio">
+								<label for="radio1">라디오1</label>
+							</span>
+							<span class="temp_form">
+								<input type="radio" id="radio2" name="radio" class="temp_radio">
+								<label for="radio2">라디오2</label>
+							</span>
+							<span class="temp_form">
+								<input type="radio" id="radio3" name="radio" class="temp_radio" disabled>
+								<label for="radio3">라디오 비활성</label>
+							</span>
+							<h5>체크박스</h5>
+							<span class="temp_form">
+								<input type="checkbox" id="check1" class="temp_check">
+								<label for="check1">체크박스1</label>
+							</span>
+							<span class="temp_form">
+								<input type="checkbox" id="chec2" class="temp_check">
+								<label for="chec2">체크박스2</label>
+							</span>
+							<span class="temp_form">
+								<input type="checkbox" id="check3" class="temp_check" disabled>
+								<label for="check3">체크박스 비활성</label>
+							</span>
+<xmp class="prettyprint linenums">
+<span class="temp_form">
+	<input type="radio" id="" name="radio" class="temp_radio">
+	<label for="">라디오1</label>
+</span>
+<span class="temp_form">
+	<input type="checkbox" id="" class="temp_check">
+	<label for="">체크박스2</label>
+</span>
+</xmp>
+							<h4>검색창 폼</h4>
+							<div class="search_form_box">
+								<div class="search_item_box">
+									<span class="temp_select_form fake">
+										<button type="button" title="목록열기" class="temp_select">
+											<span class="select_text">가짜 셀렉트</span>
+										</button>
+										<ul class="select_list">
+											<li class="select_item"><button type="button" class="select_btn">가짜1</button></li>
+											<li class="select_item"><button type="button" class="select_btn">가짜2</button></li>
+										</ul>
+									</span>
+									<span class="temp_form">
+										<input type="text" title="" class="temp_input">
+									</span>
+									<span class="search_btn_box">
+										<button type="submit" title="이동" class="form_search_btn">검색</button>
+									</span>
+								</div>
+							</div>
+<xmp class="prettyprint linenums">
+<div class="search_form_box">
+	<div class="search_item_box">
+		<span class="temp_select_form fake">
+			<button type="button" title="목록열기" class="temp_select">
+				<span class="select_text">가짜 셀렉트</span>
+			</button>
+			<ul class="select_list">
+				<li class="select_item"><button type="button" class="select_btn">가짜1</button></li>
+				<li class="select_item"><button type="button" class="select_btn">가짜2</button></li>
+			</ul>
+		</span>
+		<span class="temp_form">
+			<input type="text" title="" class="temp_input">
+		</span>
+		<span class="search_btn_box">
+			<button type="submit" title="이동" class="form_search_btn">검색</button>
+		</span>
+	</div>
+</div>
+</xmp>
+							<h4>스텝박스</h4>
+							<h5>기본 4개 data-col="4"</h5>
+							<div class="temp_step_box" data-col="4">
+								<ul class="temp_step_list">
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분<br /> 두번째줄</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분</div>
+									</li>
+								</ul>
+							</div>
+							<h4>스텝박스 6개 data-col="6"</h4>
+							<div class="temp_step_box" data-col="6">
+								<ul class="temp_step_list">
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분<br />두번째줄</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="title_text">타이틀</div>
+										<div class="desc_text">내용들어가는부분</div>
+									</li>
+								</ul>
+							</div>
+							<h4>스텝박스 type2</h4>
+							<div class="temp_step_box type2" data-col="4">
+								<ul class="temp_step_list">
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="desc_text">내용들어가는부분 한줄</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="desc_text">내용들어가는부분<br />두번쨰줄</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="desc_text">내용들어가는부분<br />두번째줄<br />세번쨰줄</div>
+									</li>
+									<li class="temp_step_item">
+										<i class="step_icon"></i>
+										<div class="desc_text">내용들어가는부분<br />두번째줄<br />세번쨰줄<br />네번째줄</div>
+									</li>
+								</ul>
+							</div>
+							
+<xmp class="prettyprint linenums">
+<div class="temp_step_box" data-col="4">
+	<ul class="temp_step_list">
+		<li class="temp_step_item">
+			<i class="step_icon"></i>
+			<div class="title_text">타이틀</div>
+			<div class="desc_text">내용</div>
+		</li>
+	</ul>
+</div>
+<div class="temp_step_box type2" data-col="4">
+	<ul class="temp_step_list">
+		<li class="temp_step_item">
+			<i class="step_icon"></i>
+			<div class="desc_text">내용</div>
+		</li>
+	</ul>
+</div>
+</xmp>
+							<h4>지도</h4>
+							<P>★☆key값 입력</P>
+							<p>★☆id ="daumRoughmapContainer 에 timestamp 값 넣기"</p>
+							<div class="map_wrap">
+								<div class="map_box">
+									<div id="daumRoughmapContainer1724401919037" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+									<script src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+						
+									<script charset="UTF-8">
+										new daum.roughmap.Lander({
+											"timestamp": "1724401919037",
+											"key": "2kfmm",
+											"mapWidth": "",
+											"mapHeight": ""
+										}).render();
+									</script>
+								</div>
+								<div class="map_text_inner">
+									<div class="text_box">
+										<div class="title">생약누리 오시는 길</div>
+										<div class="map_text">제주특별자치도 서귀포시 돈내코로 260</div>
+									</div>
+									<div class="btn_box">
+										<a href="https://map.kakao.com/link/to/생약누리,33.3055961381853, 126.57155350088411" target="_blank" title="새창" rel="noopener noreferrer" class="map_btn load_search">
+											<span>길찾기</span>
+											<i class="link_icon"></i>
+										</a>
+										<a href="https://map.kakao.com/link/search/생약누리" target="_blank" title="새창" rel="noopener noreferrer" class="map_btn map_search">
+											<span>지도보기</span>
+											<i class="link_icon"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+<xmp class="prettyprint linenums">
+<div class="map_wrap">
+	<div class="map_box">
+		<div id="daumRoughmapContainer" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+		<script src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+		<script charset="UTF-8">
+			new daum.roughmap.Lander({
+				"timestamp": "",
+				"key": "",
+				"mapWidth": "",
+				"mapHeight": ""
+			}).render();
+		</script>
+	</div>
+	<div class="map_text_inner">
+		<div class="text_box">
+			<div class="title">생약누리 오시는 길</div>
+			<div class="map_text">제주특별자치도 서귀포시 돈내코로 260</div>
+		</div>
+		<div class="btn_box">
+			<a href="https://map.kakao.com/link/to/생약누리,33.3055961381853, 126.57155350088411" target="_blank" title="새창" rel="noopener noreferrer" class="map_btn load_search">
+				<span>길찾기</span>
+				<i class="link_icon"></i>
+			</a>
+			<a href="https://map.kakao.com/link/search/생약누리" target="_blank" title="새창" rel="noopener noreferrer" class="map_btn map_search">
+				<span>지도보기</span>
+				<i class="link_icon"></i>
+			</a>
+		</div>
+	</div>
+</div>
+</xmp>
+						</div>
+					</div><!-- //#contents -->
+				</article>
+			</main>
+		</div>
+	</div>
+	<!-- //#container -->
+    <footer id="footer">
+		<div class="wrap">
+			<div class="footer_wrap">
+				<div class="foot_top_box clearfix">
+					<ul class="foot_link_list">
+						<li class="foot_link_item">
+							<a href="" target="_blank" title="새창" rel="noopener noreferrer" class="foot_link">이용약관</a>
+						</li>
+						<li class="foot_link_item">
+							<a href="" target="_blank" title="새창" rel="noopener noreferrer" class="foot_link">개인정보처리방침</a>
+						</li>
+						<li class="foot_link_item">
+							<a href="" target="_blank" title="새창" rel="noopener noreferrer" class="foot_link">이메일무단수집거부</a>
+						</li>
+						<li class="foot_link_item">
+							<a href="" target="_blank" title="새창" rel="noopener noreferrer" class="foot_link">저작권정책</a>
+						</li>
+					</ul>
+					<div class="foot_sns_site">
+						<div class="foot_sns">
+							<a href="" class="instagram_link" target="_blank" title="새창" rel="noopener noreferrer" >인스타그램</a>
+						</div>
+						<div class="foot_site">
+							<button type="button" title="사이트 목록 열기" class="foot_site_btn">
+								<span>관련사이트</span>
+							</button>
+							<ul class="foot_site_list">
+								<li class="foot_site_item">
+									<a href="" target="_blank" title="새창" rel="noopener noopener" class="foot_site_link">
+										<span>관련사이트1</span>
+									</a>
+								</li>
+								<li class="foot_site_item">
+									<a href="" target="_blank" title="새창" rel="noopener noopener" class="foot_site_link">
+										<span>관련사이트2</span>
+									</a>
+								</li>
+								<li class="foot_site_item">
+									<a href="" target="_blank" title="새창" rel="noopener noopener" class="foot_site_link">
+										<span>관련사이트3</span>
+									</a>
+								</li>
+								<li class="foot_site_item">
+									<a href="" target="_blank" title="새창" rel="noopener noopener" class="foot_site_link">
+										<span>관련사이트4</span>
+									</a>
+								</li>
+								<li class="foot_site_item">
+									<a href="" target="_blank" title="새창" rel="noopener noopener" class="foot_site_link">
+										<span>관련사이트5</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="address_box">
+					<div class="address_text">
+						<p>[63577] 제주 서귀포시 돈내코로 260</p>
+						<p>대표전화 : 064-717-8706</p>
+					</div>
+					<div class="desc_text">Copyrightⓒ jeju-si. All Rights Reserved.</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+<!-- //#wrapper -->
+</body>
+</html>

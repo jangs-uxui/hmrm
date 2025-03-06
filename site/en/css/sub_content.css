@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/* (주)한신정보기술 장희용 - 2024.10 */
+
+/* item_box_list 공통 */
+.item_box_list .item_box .desc li{word-break:keep-all;}
+.item_box_list .item_box .desc_btn_box .temp_btn .btn{word-break:keep-all;}
+
+/* Commentary (전시해설) */
+@media all and (min-width:1001px) {
+    .cts705_wrap .item_box_list .item_box .desc_box{height:auto;}
+}
+
+/* Facility Rental (시설대관) */
+.cts711_wrap .item_box_list .item_box .desc_box{height:auto;}
+
+/* Reservation (예약안내) */
+@media all and (min-width:1001px) {
+    .cts739_wrap .temp_btn .btn{padding-left:8px;padding-right:8px;font-size:15px;}
+    .cts739_wrap .reservation_list .reservation_item{height:370px;}
+    .cts739_wrap .reservation_list .reservation_item .item_inner .item_text{height:110px;}
+}
+@media all and (min-width:1001px) and (max-width:1500px) {
+    .cts739_wrap .reservation_list .reservation_item .item_inner .item_btn_box{margin-top:28px;}
+    .cts739_wrap .temp_btn .btn{font-size:14px;}
+    .cts739_wrap .reservation_list .reservation_item{height:370px;}
+    .cts739_wrap .reservation_list .reservation_item .item_inner .item_text{height:110px;}
+}
+@media all and (min-width:1001px) and (max-width:1300px) {
+    .cts695_wrap .reservation_list .reservation_item .item_inner{padding:0 20px;}
+    .cts739_wrap .temp_btn .btn{padding-left:5px;padding-right:5px;font-size:13px;}
+}
+@media all and (max-width:1000px) {
+    .cts695_wrap .reservation_list .reservation_item .item_inner{padding:0 5%;}
+    .cts739_wrap .temp_btn .btn{padding-left:5px;padding-right:5px;font-size:13px;}
+    .cts695_wrap .reservation_list .reservation_item .item_inner .item_btn_box .temp_btn.view{margin-left:5px;}
+}
+

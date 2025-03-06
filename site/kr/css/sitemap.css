@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+#contents #sitemap {width:100%; position:relative;}
+#contents #sitemap .site_map_col {float:left; width:100%; margin:0 0 20px 0;}
+#contents #sitemap .site_map_col .sitemap_box {width:210px; float:left; margin:0 9px;}
+#contents #sitemap .site_map_col .sitemap_box h2 {padding:18px 0 10px; font-size:16px; text-align:center; margin:0 0 20px 0; background:url('/common/images/board/sitemap_h2_bg.gif') no-repeat left 4PX; }
+#contents #sitemap .site_map_col .sitemap_box h2 a {color:#0e5f89; font-family: 'Nanum Gothic';}
+#contents #sitemap .site_map_col .sitemap_box ul {float:left; width:210px; border-top:1px solid #e7e7e7;}
+#contents #sitemap .site_map_col .sitemap_box ul li { float:left; width:210px; border-bottom:1px solid #e7e7e7;}
+#contents #sitemap .site_map_col .sitemap_box ul li a{ padding:8px 0 6px 20px; font-weight:600; float:left; color:#2d2d2d; width:190px; background:url('/common/images/board/sitemap_li_bg.gif') no-repeat 2px 11px; font-size:14px; }
+#contents #sitemap .site_map_col .sitemap_box ul li ul{ padding:5px 0 10px 0;}
+#contents #sitemap .site_map_col .sitemap_box ul li ul li{border:none; }
+.wrap #contents #sitemap .site_map_col .sitemap_box ul li ul li a{ background:url('/common/images/board/sitemap_li_li_bg.gif') no-repeat 13px 12px; font-weight:400; font-size:12px; padding:4px 0 2px 25px}

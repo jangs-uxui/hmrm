@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/* rix 열정도체 */
+
+@font-face{
+	font-family:'YeolJeong';
+	font-weight: 400;
+	src:url("../font/RixYeoljeongdo_Regular.woff2") format('woff2'),
+	url("../font/RixYeoljeongdo_Regular.woff") format('woff');
+}
+
+/* ScoreDream 에스코어드림 */
+
+@font-face{
+	font-family:'ScoreDream';
+	font-weight: 300;
+	src:url("../font/S-CoreDream-3Light.woff2") format('woff2'),
+	url("../font/S-CoreDream-3Light.woff") format('woff');
+}
+@font-face{
+	font-family:'ScoreDream';
+	font-weight: 400;
+	src:url("../font/S-CoreDream-4Regular.woff2") format('woff2'),
+	url("../font/S-CoreDream-4Regular.woff") format('woff');
+}
+@font-face{
+	font-family:'ScoreDream';
+	font-weight: 500;
+	src:url("../font/S-CoreDream-5Medium.woff2") format('woff2'),
+	url("../font/S-CoreDream-5Medium.woff") format('woff');
+}
+@font-face{
+	font-family:'ScoreDream';
+	font-weight: 600;
+	src:url("../font/S-CoreDream-6Bold.woff2") format('woff2'),
+	url("../font/S-CoreDream-6Bold.woff") format('woff');
+}
+
+/* SBaggro 에스비어그로 */
+@font-face{
+	font-family:'SBaggro';
+	font-weight: 300;
+	src:url("../font/SBAggroL.woff") format('woff');
+}
+@font-face{
+	font-family:'SBaggro';
+	font-weight: 500;
+	src:url("../font/SBAggroM.woff") format('woff');
+}
+@font-face{
+	font-family:'SBaggro';
+	font-weight: 600;
+	src:url("../font/SBAggroB.woff") format('woff');
+}

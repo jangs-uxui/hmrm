@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+/* 배너 */
+#banner_box {width:100%; display:inline-block; border-top:2px solid #546e8f; padding:10px 0;}
+#banner_box ul {float:left; background:url('/common/images/board/banner_line.gif') repeat left top; width:100%;}
+#banner_box ul li {float:left; width:50%; height:41px; padding:25px 0 24px; position:relative;}
+#banner_box ul li a {width:360px; height:41px;  display:inline-block;}
+#banner_box ul li img {border:1px solid #ccc;}
+#banner_box ul li span.img {position:absolute; top:24px; left:20px;}
+#banner_box ul li span.title {position:absolute; top:26px; left:175px; font-size:14px; font-weight:bold; color:#525252;}
+#banner_box ul li span.link {position:absolute; top:44px; left:175px; color:#525252; padding:0 23px 0 0; background:url('/common/images/board/banner_new_win.gif') no-repeat right 3px;}

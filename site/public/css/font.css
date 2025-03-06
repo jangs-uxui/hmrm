@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+@font-face{
+	font-family:'OpenSans';
+	font-weight: 600;
+	src:url("../font/OpenSans-Bold.woff2") format('woff2'),
+	url("../font/OpenSans-Bold.woff") format('woff');
+}

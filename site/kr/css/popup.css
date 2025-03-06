@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+/* 팝업 */
+#pop_box {width:100%; display:inline-block; border-top:2px solid #546e8f; padding:10px 0;}
+#pop_box ul {float:left; width:100%;}
+#pop_box ul li {float:left; width:50%; height:185px; padding:25px 0 0px; border-bottom:1px solid #ececec; position:relative;}
+#pop_box ul li a {width:360px; height:181px;  display:inline-block;}
+#pop_box ul li img {border:1px solid #ccc;}
+#pop_box ul li span.img {width:100%; display:inline-block;  text-align:center;}
+#pop_box ul li span.title {width:100%; display:inline-block; padding:10px 0; text-align:center;  font-size:14px; font-weight:bold; color:#525252;}
+#pop_box ul li span.link {width:100%; display:inline-block; color:#525252; padding:0 23px 0 0; background:url('/common/images/board/banner_new_win.gif') no-repeat right 3px;}
+
+#pop_box ul.pop_info li a {text-align:center;}
+#pop_box ul.pop_info li img {height:120px; width:220px;}
