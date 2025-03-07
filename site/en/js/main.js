@@ -92,7 +92,7 @@
         // 비주얼 슬라이드
         const $visualSlide = $('.main_visual .visual_slide .slide_list');
         $visualSlide.slick({
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 5000,
             fade: true,
             speed: 1000,
